@@ -17,7 +17,7 @@ def imagebun_celery(image_data):
     }
     get_request = requests.get(IMAGEBUN_ENDPOINT, params=payload)
 
-    db_row = imgdb.objects.get(id=image_data.get("id"))
-    db_row.imagebun_link = get_request.get('direct_link')
-    db_row.status = True
-    db_row.save()
+    # db_row = imgdb.objects.get(id=image_data.get("id"))
+    # db_row.imagebun_link = get_request.get('direct_link')
+    # db_row.status = True
+    # db_row.save()
