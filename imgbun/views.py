@@ -21,12 +21,7 @@ def image(request):
         background=image_data.get("background"),
     )
     result_from_celery = imagebun_celery.delay(image_data)
-
-    api_key = os.environ['IMAGEBUN_APIKEY']
-
     return JsonResponse(create_entry.to_dict())
-
-    # return JsonResponse(result_from_celery.get())
 
 
 def status(request, id):
