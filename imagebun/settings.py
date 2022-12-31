@@ -124,3 +124,5 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CELERY_BROKER_URL = "amqp://guest:guest@localhost:5672//"
+
+IMAGEBUN_ENDPOINT = "https://api.imgbun.com/png"
