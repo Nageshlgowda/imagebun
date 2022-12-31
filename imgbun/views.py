@@ -4,7 +4,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from imgbun.models import *
 from .tasks import imagebun_celery
-
+import os
 def frontpage(request):
     data = "Front page html test ___working"
     return JsonResponse({"data": data})
@@ -21,6 +21,9 @@ def image(request):
         background=image_data.get("background"),
     )
     result_from_celery = imagebun_celery.delay(image_data)
+
+    api_key = os.environ['IMAGEBUN_APIKEY']
+
     return JsonResponse(create_entry.to_dict())
 
     # return JsonResponse(result_from_celery.get())
